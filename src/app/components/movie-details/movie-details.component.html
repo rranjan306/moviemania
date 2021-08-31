@@ -1,0 +1,35 @@
+<div class="container">
+	<div class="row">
+		<div class="flex-1 movie_overview">
+			<img class="movie_overview_image" src="{{'https://www.themoviedb.org/' + 't/p/w220_and_h330_face' + movie?.poster_path}}" alt="{{movie?.original_title}}">
+			<div class="movie_content">
+				<h1>{{movie?.original_title}}</h1>
+				<p>{{movie?.overview}}</p>
+				<p><span class="badge rounded-pill bg-danger">Release Date</span>: <span>{{movie?.release_date | date: 'longDate'}}</span></p>
+				<p><span class="badge rounded-pill bg-info text-dark">Runtime</span>: <span>{{movie?.runtime}} min</span></p>
+				<p>
+					<span class="badge rounded-pill bg-warning text-dark">Languages</span>:
+					<span *ngFor="let language of movie?.spoken_languages"> {{language?.english_name}}</span>
+				</p>
+			</div>
+		</div>
+		<div class="flex-1">
+			<iframe [src]="getSafeURL()" width="100%" height="100%"></iframe>
+		</div>
+		<h1 class="heading">Similar Movies</h1>
+		<div class="grid-container">
+			<div class="grid-item" *ngFor="let movie of similarMovies" (click)="onMovieSelect(movie)">
+				<div><img class="poster_img" src="{{'https://www.themoviedb.org/' + 't/p/w220_and_h330_face' + movie.poster_path}}" alt="{{movie.original_title}}"></div>
+				<div class="content">
+					<strong>{{movie.original_title}}</strong>
+					<p>{{movie.release_date | date: 'longDate'}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<ngx-spinner 
+	bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff"
+	type="square-jelly-box" [fullScreen]="true">
+</ngx-spinner>

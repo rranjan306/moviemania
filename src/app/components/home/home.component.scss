@@ -1,0 +1,34 @@
+.flex-container{
+	display: flex;
+	overflow-x: scroll;
+}
+
+::-webkit-scrollbar {
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+.flex-item{
+	border: 1px solid #e3e3e3;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	cursor: pointer;
+	margin: 5px;
+}
+
+.poster_img{
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.heading{
+	margin: 5px;
+}
+
+.content{
+	display: flex;
+	padding: 10px;
+}
+
+.flex-1{
+	flex: 1;
+}

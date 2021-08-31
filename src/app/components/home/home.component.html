@@ -1,0 +1,116 @@
+<div class="container">
+	<div class="row">
+		<div class="top_trending">
+			<h2 class="heading">Top Trending</h2>
+			<div class="flex-container">
+				<div class="flex-item" *ngFor="let movie of tredingMovies" [routerLink]="['/movie', movie.id]">
+					<div class="content-container">
+						<div><img class="poster_img" 
+							src="{{'https://www.themoviedb.org/' + 't/p/w220_and_h330_face' + movie.poster_path}}" alt="{{movie.original_title}}">
+						</div>
+						<div class="content">
+							<div class="flex-1">
+								<strong>{{movie.original_title}}</strong>
+								<p>{{movie.release_date | date: 'longDate'}}</p>
+								<app-rate-popularity [voteAverage]="movie?.vote_average"></app-rate-popularity>
+							</div>
+							<div class="flex-1 text-end">
+								<app-progress-bar [vote]="movie.vote_average"></app-progress-bar>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="popular">
+			<h2 class="heading">Popular</h2>
+			<div class="flex-container">
+				<div class="flex-item" *ngFor="let movie of popularMovies" [routerLink]="['/movie', movie.id]">
+					<div class="content-container">
+						<div><img class="poster_img" src="{{'https://www.themoviedb.org/' + 't/p/w220_and_h330_face' + movie.poster_path}}" alt="{{movie.original_title}}"></div>
+						<div class="content">
+							<div class="flex-1">
+								<strong>{{movie.original_title}}</strong>
+								<p>{{movie.release_date | date: 'longDate'}}</p>
+								<app-rate-popularity [voteAverage]="movie?.vote_average"></app-rate-popularity>
+							</div>
+							<div class="flex-1">
+								<app-progress-bar [vote]="movie.vote_average"></app-progress-bar>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="top_rated">
+			<h2 class="heading">Top Rated</h2>
+			<div class="flex-container">
+				<div class="flex-item" *ngFor="let movie of topRatedMovies" [routerLink]="['/movie', movie.id]">
+					<div class="content-container">
+						<div><img class="poster_img" src="{{'https://www.themoviedb.org/' + 't/p/w220_and_h330_face' + movie.poster_path}}" alt="{{movie.original_title}}"></div>
+						<div class="content">
+							<div class="flex-1">
+								<strong>{{movie.original_title}}</strong>
+								<p>{{movie.release_date | date: 'longDate'}}</p>
+								<app-rate-popularity [voteAverage]="movie?.vote_average"></app-rate-popularity>
+							</div>
+							<div class="flex-1">
+								<app-progress-bar [vote]="movie.vote_average"></app-progress-bar>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="now_playing">
+			<h2 class="heading">Now Playing</h2>
+			<div class="flex-container">
+				<div class="flex-item" *ngFor="let movie of nowPlayingMovies" [routerLink]="['/movie', movie.id]">
+					<div class="content-container">
+						<div><img class="poster_img" src="{{'https://www.themoviedb.org/' + 't/p/w220_and_h330_face' + movie.poster_path}}" alt="{{movie.original_title}}"></div>
+						<div class="content">
+							<div class="flex-1">
+								<strong>{{movie.original_title}}</strong>
+								<p>{{movie.release_date | date: 'longDate'}}</p>
+								<app-rate-popularity [voteAverage]="movie?.vote_average"></app-rate-popularity>
+							</div>
+							<div class="flex-1">
+								<app-progress-bar [vote]="movie.vote_average"></app-progress-bar>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="upcoming">
+			<h2 class="heading">Upcoming Movies</h2>
+			<div class="flex-container">
+				<div class="flex-item" *ngFor="let movie of getUpcomingMovies" [routerLink]="['/movie', movie.id]">
+					<div class="content-container">
+						<div><img class="poster_img" src="{{'https://www.themoviedb.org/' + 't/p/w220_and_h330_face' + movie.poster_path}}" alt="{{movie.original_title}}"></div>
+						<div class="content">
+							<div class="flex-1">
+								<strong>{{movie.original_title}}</strong>
+								<p>{{movie.release_date | date: 'longDate'}}</p>
+								<app-rate-popularity [voteAverage]="movie?.vote_average"></app-rate-popularity>
+							</div>
+							<div class="flex-1">
+								<app-progress-bar [vote]="movie.vote_average"></app-progress-bar>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<ngx-spinner 
+	bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff"
+	type="square-jelly-box" [fullScreen]="true">
+</ngx-spinner>
+

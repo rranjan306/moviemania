@@ -1,0 +1,24 @@
+<div class="container">
+	<div class="row">
+		<div class="grid-container">
+			<div class="grid-item" *ngFor="let movie of movies" [routerLink]="['/movie', movie.id]">
+				<div><img class="poster_img" src="{{'https://www.themoviedb.org/' + 't/p/w220_and_h330_face' + movie.poster_path}}" alt="{{movie.original_title}}"></div>
+				<div class="content">
+					<div class="flex-1">
+						<strong>{{movie.original_title}}</strong>
+						<p>{{movie.release_date | date: 'longDate'}}</p>
+						<app-rate-popularity [voteAverage]="movie?.vote_average"></app-rate-popularity>
+					</div>
+					<div class="flex-1 text-end">
+						<app-progress-bar [vote]="movie.vote_average"></app-progress-bar>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<ngx-spinner 
+	bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff"
+	type="square-jelly-box" [fullScreen]="true">
+</ngx-spinner>
